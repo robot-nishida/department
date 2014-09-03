@@ -1,0 +1,83 @@
+<h1><%= @school.name %></h1>
+
+
+
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+    <%= f.hidden_field :done_flg, :value => true %>
+  </div>
+
+  <div class="field">
+    <%= f.fields_for :branches do |branch| %>
+      <div class="field">
+        <%= branch.label :name %>
+        <%= branch.text_field :name %><br>
+        <%= branch.label :url %>
+        <%= branch.text_field :url %>
+        <%= branch.label :subject1 %>
+        <%= branch.text_field :subject1 %>
+        <%= branch.label :subject2 %>
+        <%= branch.text_field :subject2 %>
+        <%= branch.label :subject3 %>
+        <%= branch.text_field :subject3 %>
+        <%= branch.label :subject4 %>
+        <%= branch.text_field :subject4 %>
+        <%= branch.label :subject5 %>
+        <%= branch.text_field :subject5 %>
+        <%= branch.label :subject6 %>
+        <%= branch.text_field :subject6 %>
+        <%= branch.label :subject7 %>
+        <%= branch.text_field :subject7 %>
+        <%= branch.label :subject8 %>
+        <%= branch.text_field :subject8 %>
+        <%= branch.label :subject9 %>
+        <%= branch.text_field :subject9 %>
+        <%= branch.label :subject10 %>
+        <%= branch.text_field :subject10 %>
+        <%= branch.label :subject11 %>
+        <%= branch.text_field :subject11 %>
+        <%= branch.label :subject12 %>
+        <%= branch.text_field :subject12 %>
+        <%= branch.label :subject12 %>
+        <%= branch.text_field :subject12 %>
+        <%= branch.label :subject13 %>
+        <%= branch.text_field :subject13 %>
+        <%= branch.label :subject14 %>
+        <%= branch.text_field :subject14 %>
+        <%= branch.label :subject15 %>
+        <%= branch.text_field :subject15 %>
+        <%= branch.label :subject16 %>
+        <%= branch.text_field :subject16 %>
+        <%= branch.label :subject17 %>
+        <%= branch.text_field :subject17 %>
+        <%= branch.label :subject18 %>
+        <%= branch.text_field :subject18 %>
+        <%= branch.label :subject19 %>
+        <%= branch.text_field :subject19 %>
+        <%= branch.label :subject20 %>
+        <%= branch.text_field :subject20 %>
+      </div>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

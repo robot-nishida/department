@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  url: MyString
+  subject1: MyString
+  subject2: MyString
+  subject3: MyString
+  subject4: MyString
+  subject5: MyString
+  subject6: MyString
+  subject7: MyString
+  subject8: MyString
+  subject9: MyString
+  subject10: MyString
+  subject11: MyString
+  subject12: MyString
+  subject13: MyString
+  subject14: MyString
+  subject15: MyString
+  subject16: MyString
+  subject17: MyString
+  subject18: MyString
+  subject19: MyString
+  subject20: MyString
+
+two:
+  name: MyString
+  url: MyString
+  subject1: MyString
+  subject2: MyString
+  subject3: MyString
+  subject4: MyString
+  subject5: MyString
+  subject6: MyString
+  subject7: MyString
+  subject8: MyString
+  subject9: MyString
+  subject10: MyString
+  subject11: MyString
+  subject12: MyString
+  subject13: MyString
+  subject14: MyString
+  subject15: MyString
+  subject16: MyString
+  subject17: MyString
+  subject18: MyString
+  subject19: MyString
+  subject20: MyString
