@@ -1,8 +1,4 @@
-<h1><%= @school.name %></h1>
-
-
-
-<%= form_for(@school) do |f| %>
+<%= form_for(@school, class: 'form-horizontal', role: 'form') do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -15,69 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-    <%= f.hidden_field :done_flg, :value => true %>
+  <div class="field school">
+    <%= f.label :name, "学校名" %>
+    <%= f.text_field :name %><br>
+    <%= f.label :url, "サイトURL" %>
+    <%= f.text_field :url, size: "60" %>
   </div>
 
-  <div class="field">
+  <hr>
+
+  <div class="form-group">
     <%= f.fields_for :branches do |branch| %>
-      <div class="field">
-        <%= branch.label :name %>
+      <div class="field branches">
+        <%= branch.label :name, "学部(大学)/学科(専門)" %>
         <%= branch.text_field :name %><br>
-        <%= branch.label :url %>
-        <%= branch.text_field :url %>
-        <%= branch.label :subject1 %>
+        <%= branch.label :url, "サイトURL" %>
+        <%= branch.text_field :url, size: "60" %>
+      </div>
+      <div class="field subjects">
+        <%= branch.label :subject1, "学科①" %>
         <%= branch.text_field :subject1 %>
-        <%= branch.label :subject2 %>
-        <%= branch.text_field :subject2 %>
-        <%= branch.label :subject3 %>
+        <%= branch.label :subject2, "学科②" %>
+        <%= branch.text_field :subject2 %><br>
+        <%= branch.label :subject3, "学科③" %>
         <%= branch.text_field :subject3 %>
-        <%= branch.label :subject4 %>
-        <%= branch.text_field :subject4 %>
-        <%= branch.label :subject5 %>
+        <%= branch.label :subject4, "学科④" %>
+        <%= branch.text_field :subject4 %><br>
+        <%= branch.label :subject5, "学科⑤" %>
         <%= branch.text_field :subject5 %>
-        <%= branch.label :subject6 %>
-        <%= branch.text_field :subject6 %>
-        <%= branch.label :subject7 %>
+        <%= branch.label :subject6, "学科⑥" %>
+        <%= branch.text_field :subject6 %><br>
+        <%= branch.label :subject7, "学科⑦" %>
         <%= branch.text_field :subject7 %>
-        <%= branch.label :subject8 %>
-        <%= branch.text_field :subject8 %>
-        <%= branch.label :subject9 %>
+        <%= branch.label :subject8, "学科⑧" %>
+        <%= branch.text_field :subject8 %><br>
+        <%= branch.label :subject9, "学科⑨" %>
         <%= branch.text_field :subject9 %>
-        <%= branch.label :subject10 %>
-        <%= branch.text_field :subject10 %>
-        <%= branch.label :subject11 %>
+        <%= branch.label :subject10, "学科⑩" %>
+        <%= branch.text_field :subject10 %><br>
+        <%= branch.label :subject11, "学科⑪" %>
         <%= branch.text_field :subject11 %>
-        <%= branch.label :subject12 %>
-        <%= branch.text_field :subject12 %>
-        <%= branch.label :subject12 %>
-        <%= branch.text_field :subject12 %>
-        <%= branch.label :subject13 %>
+        <%= branch.label :subject12, "学科⑫" %>
+        <%= branch.text_field :subject12 %><br>
+        <%= branch.label :subject13, "学科⑬" %>
         <%= branch.text_field :subject13 %>
-        <%= branch.label :subject14 %>
-        <%= branch.text_field :subject14 %>
-        <%= branch.label :subject15 %>
+        <%= branch.label :subject14, "学科⑭" %>
+        <%= branch.text_field :subject14 %><br>
+        <%= branch.label :subject15, "学科⑮" %>
         <%= branch.text_field :subject15 %>
-        <%= branch.label :subject16 %>
-        <%= branch.text_field :subject16 %>
-        <%= branch.label :subject17 %>
+        <%= branch.label :subject16, "学科⑯" %>
+        <%= branch.text_field :subject16 %><br>
+        <%= branch.label :subject17, "学科⑰" %>
         <%= branch.text_field :subject17 %>
-        <%= branch.label :subject18 %>
-        <%= branch.text_field :subject18 %>
-        <%= branch.label :subject19 %>
+        <%= branch.label :subject18, "学科⑱" %>
+        <%= branch.text_field :subject18 %><br>
+        <%= branch.label :subject19, "学科⑲" %>
         <%= branch.text_field :subject19 %>
-        <%= branch.label :subject20 %>
+        <%= branch.label :subject20, "学科⑳" %>
         <%= branch.text_field :subject20 %>
       </div>
+      <hr>
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '更新する', class: 'btn-default',data: {disable_with: '作成中…'} %>
   </div>
 <% end %>

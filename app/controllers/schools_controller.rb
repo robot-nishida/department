@@ -5,7 +5,15 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
+
+    @all_school_count = School.count
+    @done_school_count = School.where(:done_flg => "t").count('id')
     @schools = School.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data School.to_csv, type: 'text/csv; charset=shift_jis', filename: "school.csv" }
+    end
   end
 
   # GET /schools/1
@@ -31,7 +39,7 @@ class SchoolsController < ApplicationController
 
     respond_to do |format|
       if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
+        format.html { redirect_to @school, notice: '学校を新規登録しました。' }
         format.json { render :show, status: :created, location: @school }
       else
         format.html { render :new }
@@ -48,10 +56,10 @@ class SchoolsController < ApplicationController
       if @school.update(school_params)
         @next_school = School.where(:done_flg => false).order(:id).limit(1).first
         if @next_school
-          format.html { redirect_to edit_school_path(@next_school), notice: 'School was successfully updated. We gonna next school' }
+          format.html { redirect_to edit_school_path(@next_school), notice: '学校・学部情報を更新しました。次の学校を表示します。' }
           format.json { render :show, status: :ok, location: @next_school }
         else
-          format.html { redirect_to schools_path, notice: 'School was successfully updated. It is over' }
+          format.html { redirect_to schools_path, notice: '学校・学部情報を更新しました。次の学校はありません。' }
           format.json { render :show, status: :ok, location: @school }
         end
       else
@@ -76,7 +84,7 @@ class SchoolsController < ApplicationController
     if @next_school
       redirect_to edit_school_path(@next_school)
     else
-      redirect_to schools_path, notice: 'It is over'
+      redirect_to schools_path, notice: '確認が必要な学校はありません。'
     end
   end
 

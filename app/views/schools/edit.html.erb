@@ -1,7 +1,9 @@
-<h1>Editing school</h1>
-
 <p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h4><%= @school.name %> <%= link_to '（リンクを開く）', @school.url, :target=>["school_page"] %></h4>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', schools_path %>
+
